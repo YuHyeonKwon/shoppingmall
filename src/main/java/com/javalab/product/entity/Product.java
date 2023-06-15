@@ -1,7 +1,5 @@
 package com.javalab.product.entity;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,8 +14,9 @@ import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 /**
@@ -32,7 +31,8 @@ import lombok.ToString;
  */
 @Builder
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="tbl_product")
@@ -52,7 +52,7 @@ public class Product extends BaseEntity{
 	private String productName;
 	
 	@Column(columnDefinition = "integer(10) default 0")
-	private Integer price = 0; 
+	private Integer price;
 	
 	// 외래키 - 카테고리 테이블 참조함.
     @ManyToOne(fetch = FetchType.LAZY)
