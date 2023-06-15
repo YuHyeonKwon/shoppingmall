@@ -47,6 +47,7 @@ public class OrderMaster extends BaseEntity {
     private Member member;
     
     // 주문 상품들
+    @Builder.Default
     @OneToMany(mappedBy = "orderMaster", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems = new ArrayList<>();
     
